@@ -1,0 +1,105 @@
+@model Wedding
+<html>
+
+    <head>
+        <meta charset='utf-8'>
+        <title>Portfolio</title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            body{
+                /* background:linear-gradient(370deg,#BD3F32,#CB356B); */
+                /* background:linear-gradient(370deg,#2a0845,#6441A5); */
+                 background:linear-gradient(370deg,#654e5e, #bbb5c1);
+                height:900px;
+                
+            }
+            h1{
+                color:white;
+            }
+            #container{
+                width:900px;
+                padding:10px;
+                background:linear-gradient(370deg,ghostwhite,whitesmoke);
+                min-height: 400px;
+                margin-top:20px;
+                border-radius:8px;
+                /* box-shadow: 5px 14px 27px 19px lightpink inset; */
+                
+            }
+           #logout{
+               margin-top:20px;
+           }
+            .table td {
+            text-align: center;   
+            }
+
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $("#feed").click(function(){
+                $("#full").load("demo_test.txt");
+            });
+        });
+        </script>
+    </head>
+    <body>
+       
+        <div class="row">
+            <div class="col-sm-7">
+                <h1>Plan Your Wedding</h1>
+            </div>
+            <div class="col-sm-1">
+                <a  class="btn btn-default" id="logout" href="/dashboard">Dashboard</a>
+            </div>
+            <div class="col-sm-1">
+                <a  class="btn btn-default" id="logout" href="/logout">Log Out</a>
+            </div>
+
+        </div>
+        
+        <div id = "container">
+
+                <form asp-action="createWedding" asp-controller="Home">
+                    <div class="form-group">
+                        <span asp-validation-for="WedderOneId"></span>
+                        <label>Wedder One: </label>
+                        <select asp-for="WedderOneId" class="form-control" id="sel1">
+                            @{
+                                foreach (var wedder in ViewBag.Wedders)
+                                {
+                                    <option value="@wedder.UserId">@wedder.FName @wedder.LName</option>
+                                }
+                            }
+                        </select>
+                        <br>
+
+                        <span asp-validation-for="WedderTwoId"></span>
+                        <label>Wedder Two: </label>
+                        <select asp-for="WedderTwoId" class="form-control" id="sel1">
+                            @{
+                                foreach (var wedder in ViewBag.Wedders)
+                                {
+                                    <option value="@wedder.UserId">@wedder.FName @wedder.LName</option>
+                                }
+                            }
+                        </select>
+                        <br>
+
+                        <span asp-validation-for="Date"></span>                
+                        <label>Date: </label>
+                        <input asp-for="Date" class="form-control"><br>
+                        
+                        <span asp-validation-for="Address"></span>
+                        <label>Address: </label>
+                        <input asp-for="Address" class="form-control"><br>
+
+                        <button type="submit" class="btn btn-default center-block">Create</button>
+                    </div>
+                </form>
+        </div> 
+
+
+    </body>
+
+</html>

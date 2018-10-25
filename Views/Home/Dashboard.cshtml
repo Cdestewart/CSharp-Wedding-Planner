@@ -1,0 +1,116 @@
+@using System.Linq
+<html>
+
+    <head>
+        <meta charset='utf-8'>
+        <title>Portfolio</title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            body{
+                /* background:linear-gradient(370deg,#BD3F32,#CB356B); */
+                /* background:linear-gradient(370deg,#2a0845,#6441A5); */
+                 background:linear-gradient(370deg,#654e5e, #bbb5c1);
+                min-height:900px;
+                min-width: 970px;
+                
+            }
+            h1{
+                color:white;
+            }
+            #container{
+                width:900px;
+                padding:10px;
+                background:linear-gradient(370deg,ghostwhite,whitesmoke);
+                min-height: 400px;
+                margin-top:20px;
+                border-radius:8px;
+                /* box-shadow: 5px 14px 27px 19px lightpink inset; */
+                
+            }
+           #logout{
+               margin-top:20px;
+           }
+            .table th{
+            text-align: center;   
+            }
+            .table td{
+            text-align: center;   
+            }
+            #add{
+                margin:13px 0px 0px 745px;
+            }
+
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+        </script>
+    </head>
+    <body>
+       
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>Welcome to the Wedding Planner</h1>
+            </div>
+            <div class="col-sm-1">
+                <a  class="btn btn-default" id="logout" href="/logout">Log Out</a>
+            </div>
+
+        </div>
+        <div id = "container">
+            <table class="table table-hover">
+                 <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Wedding</th>
+                        <th scope="col">Date</th>
+                        <th scope="col"># of Guests</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    @{
+                        foreach (var wed in ViewBag.Weddings)
+                        {
+                            <tr onclick="window.location.href='/wedding/@wed.WeddingId'">
+                                <td>@wed.WedderOne.FName @wed.WedderOne.LName and @wed.WedderTwo.FName @wed.WedderTwo.LName</td>
+                                <td>@wed.Date</td>
+                                <td>@wed.Attendees.Count</td>
+                                
+                                @{
+                                    int count = 0;
+                                    if(wed.Attendees.Count >0)
+                                    {
+                                    foreach(var guest in wed.Attendees)
+                                    {
+                                        if(guest.UserId == ViewBag.UserId){
+                                            count++;
+                                        }
+                                    }
+                                    }
+                                    if(ViewBag.UserId == wed.WedderOneId || ViewBag.UserId == wed.WedderTwoId){
+                                        <td><a href="/delete/@wed.WeddingId" class="btn btn-default">Delete</a></td>
+                                    }
+                                    else if(count>0)
+                                    {
+                                        <td><a href="/unrsvp/@wed.WeddingId" class="btn btn-default">Un-RSVP</a></td>
+                                    }
+                                    else
+                                    {
+                                        <td><a href="/RSVP/@wed.WeddingId" class="btn btn-default">RSVP</a></td>
+                                    }
+                                }
+                            </tr>
+                        }
+                    }
+                </tbody>
+        </table> 
+        
+
+        </div>
+        <a  class="btn btn-default" id = "add" href="/plan-your-wedding">Add A New Wedding</a>
+            
+
+
+    </body>
+
+</html>

@@ -1,0 +1,11 @@
+C:\Users\littl\Documents\Caitlin\Coding Dojo\C#\WeddingPlanning\obj\Debug\netcoreapp2.0\WeddingPlanning.csprojResolveAssemblyReference.cache
+C:\Users\littl\Documents\Caitlin\Coding Dojo\C#\WeddingPlanning\obj\Debug\netcoreapp2.0\WeddingPlanning.csproj.CoreCompileInputs.cache
+C:\Users\littl\Documents\Caitlin\Coding Dojo\C#\WeddingPlanning\obj\Debug\netcoreapp2.0\WeddingPlanning.AssemblyInfoInputs.cache
+C:\Users\littl\Documents\Caitlin\Coding Dojo\C#\WeddingPlanning\obj\Debug\netcoreapp2.0\WeddingPlanning.AssemblyInfo.cs
+C:\Users\littl\Documents\Caitlin\Coding Dojo\C#\WeddingPlanning\bin\Debug\netcoreapp2.0\WeddingPlanning.deps.json
+C:\Users\littl\Documents\Caitlin\Coding Dojo\C#\WeddingPlanning\bin\Debug\netcoreapp2.0\WeddingPlanning.runtimeconfig.json
+C:\Users\littl\Documents\Caitlin\Coding Dojo\C#\WeddingPlanning\bin\Debug\netcoreapp2.0\WeddingPlanning.runtimeconfig.dev.json
+C:\Users\littl\Documents\Caitlin\Coding Dojo\C#\WeddingPlanning\bin\Debug\netcoreapp2.0\WeddingPlanning.dll
+C:\Users\littl\Documents\Caitlin\Coding Dojo\C#\WeddingPlanning\bin\Debug\netcoreapp2.0\WeddingPlanning.pdb
+C:\Users\littl\Documents\Caitlin\Coding Dojo\C#\WeddingPlanning\obj\Debug\netcoreapp2.0\WeddingPlanning.dll
+C:\Users\littl\Documents\Caitlin\Coding Dojo\C#\WeddingPlanning\obj\Debug\netcoreapp2.0\WeddingPlanning.pdb
